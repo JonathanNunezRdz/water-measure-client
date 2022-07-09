@@ -47,7 +47,7 @@ const CisternWaterLevelChart: FC<CisternWaterLevelChartProps> = ({
 					},
 				}}
 				colors={lineColor}
-				margin={{ top: 10, right: 10, bottom: 100, left: 65 }}
+				margin={{ top: 10, right: 20, bottom: 100, left: 65 }}
 				xScale={{ type: 'point' }}
 				yScale={{
 					type: 'linear',
@@ -63,8 +63,8 @@ const CisternWaterLevelChart: FC<CisternWaterLevelChartProps> = ({
 					tickSize: 5,
 					tickPadding: 5,
 					tickRotation: -45,
-					format: (value: Date) => {
-						return value.toLocaleString();
+					format: (value: string) => {
+						return new Date(value).toLocaleString();
 					},
 				}}
 				axisLeft={{

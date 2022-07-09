@@ -1,24 +1,23 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, useBreakpointValue } from '@chakra-ui/react';
+import type { FC } from 'react';
 
-import CTASection from 'lib/components/samples/CTASection';
-import SomeImage from 'lib/components/samples/SomeImage';
-import SomeText from 'lib/components/samples/SomeText';
+import { useBoxBg } from 'lib/hooks';
 
-const Home = () => {
+const Home: FC = () => {
+	const bg = useBoxBg(0);
+	const label = useBreakpointValue({ base: 'top', md: 'left' });
 	return (
-		<Box
-			display={{ md: 'flex' }}
-			alignItems='center'
-			minHeight='70vh'
-			gap={8}
-			mb={8}
-			w='full'
-		>
-			<SomeImage />
-
-			<Box>
-				<SomeText />
-				<CTASection />
+		<Box bg={bg} borderRadius='md'>
+			<Box py='2' px='4'>
+				<Flex alignItems='center' my='2'>
+					<Heading size='lg'>No cistern selected.</Heading>
+				</Flex>
+				<Box my='2'>
+					<Text fontSize='1.25rem'>
+						Select a cistern from the {label} menu or register a new
+						one.
+					</Text>
+				</Box>
 			</Box>
 		</Box>
 	);

@@ -19,13 +19,13 @@ const CisternDimensions: FC<CisternDimensionsProps> = ({ length, width }) => {
 				<Box width='100%'>
 					<SimpleGrid columns={2}>
 						<Text>Length:</Text>
-						<Text textAlign='center'>{length} m</Text>
+						<Text textAlign='center'>{length.toFixed(2)} m</Text>
 					</SimpleGrid>
 				</Box>
 				<Box width='100%'>
 					<SimpleGrid columns={2}>
 						<Text>Width:</Text>
-						<Text textAlign='center'>{width} m</Text>
+						<Text textAlign='center'>{width.toFixed(2)} m</Text>
 					</SimpleGrid>
 				</Box>
 			</SimpleGrid>

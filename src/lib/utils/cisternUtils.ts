@@ -21,7 +21,7 @@ export const getCisternNameFromQuery = (
 export const transformWaterLevelData = (waterLevel: WaterLevel[]): Serie[] => {
 	const data = waterLevel.map(({ createdAt, level }) => ({
 		x: createdAt,
-		y: level,
+		y: Number(level.toFixed(2)),
 	}));
 	return [
 		{

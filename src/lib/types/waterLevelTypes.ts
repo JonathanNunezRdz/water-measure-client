@@ -1,7 +1,7 @@
 export type WaterLevel = {
 	id: number;
-	createdAt: Date;
-	updatedAt: Date;
+	createdAt: string;
+	updatedAt: string;
 	level: number;
 	cisternId: number;
 };

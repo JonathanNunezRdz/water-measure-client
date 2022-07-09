@@ -26,7 +26,7 @@ const CisternDetails: FC<CisternDetailsProps> = ({
 		if (currentCistern) {
 			const { waterLevel } = currentCistern;
 			if (waterLevel && waterLevel.length > 0)
-				return `${waterLevel[0].level} m`;
+				return waterLevel[waterLevel.length - 1].level;
 		}
 		return 'n/a';
 	}, [currentCistern]);
@@ -58,6 +58,8 @@ const CisternDetails: FC<CisternDetailsProps> = ({
 					min={currentCistern.minWaterHeight}
 					max={currentCistern.maxWaterHeight}
 					current={lastWaterLevel}
+					length={currentCistern.length}
+					width={currentCistern.width}
 				/>
 				<CisternHistory
 					waterLevel={currentCistern.waterLevel}

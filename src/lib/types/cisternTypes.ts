@@ -25,8 +25,8 @@ export type RegisterCisternError = {
 
 export type Cistern = {
 	id: number;
-	createdAt: Date;
-	updatedAt: Date;
+	createdAt: string;
+	updatedAt: string;
 	name: string;
 	length: number;
 	width: number;
@@ -35,7 +35,7 @@ export type Cistern = {
 	waterLevelThreshold: number;
 };
 
-export type CompleCistern = Cistern & {
+export type CompleteCistern = Cistern & {
 	sensor: Sensor;
 	waterLevel: WaterLevel[];
 };
@@ -48,9 +48,9 @@ export type CisternWithWaterLevel = Cistern & {
 	waterLevel: WaterLevel[];
 };
 
-export type GetCisternReponse = CompleCistern;
+export type GetCisternReponse = CompleteCistern;
 
-export type RegisterCisternResponse = CompleCistern;
+export type RegisterCisternResponse = CompleteCistern;
 
 export type GetAllCisternsResponse = CisternName[];
 
@@ -64,7 +64,7 @@ export type CisternState = {
 	getCisternsStatus: Status;
 	getCisternsError: string;
 
-	currentCistern: CompleCistern | undefined;
+	currentCistern: CompleteCistern | undefined;
 	getCisternStatus: Status;
 	getCisternError: string;
 

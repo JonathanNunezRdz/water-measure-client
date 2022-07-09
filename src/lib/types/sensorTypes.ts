@@ -1,7 +1,7 @@
 export type Sensor = {
 	id: number;
-	createdAt: Date;
-	updatedAt: Date;
+	createdAt: string;
+	updatedAt: string;
 	height: number;
 	offset: number;
 	cisternId: number;
