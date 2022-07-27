@@ -16,6 +16,7 @@ const CommitLintConfiguration = {
 				'utils',
 				'types',
 				'all',
+				'package',
 			],
 		],
 		'scope-case': [2, 'always', 'kebab-case'],

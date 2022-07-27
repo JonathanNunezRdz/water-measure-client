@@ -22,7 +22,7 @@ const Cisterns: FC = () => {
 		if (getCisternsStatus === 'idle') dispatch(getAllCisterns());
 	}, [getCisternsStatus, dispatch]);
 	return (
-		<VStack px={1}>
+		<VStack px={1} alignItems='center'>
 			{cisternNames.length > 0 ? (
 				<CisternLinks cisternNames={cisternNames} />
 			) : (

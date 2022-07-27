@@ -4,7 +4,7 @@
 	"private": true,
 	"author": "JonathanNunezRdz",
 	"scripts": {
-		"dev": "next dev",
+		"dev": "doppler run -- next dev",
 		"build": "next build",
 		"postbuild": "next-sitemap --config next-sitemap.config.js",
 		"start": "next start",
