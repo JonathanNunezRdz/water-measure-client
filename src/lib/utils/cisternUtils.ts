@@ -18,10 +18,16 @@ export const getCisternNameFromQuery = (
 	return undefined;
 };
 
+export const truncateDecimal = (num: number): number => {
+	const str = num.toString().match(/^-?\d+(?:\.\d{0,2})?/);
+	if (str) return Number(str[0]);
+	return 0;
+};
+
 export const transformWaterLevelData = (waterLevel: WaterLevel[]): Serie[] => {
 	const data = waterLevel.map(({ createdAt, level }) => ({
 		x: createdAt,
-		y: Number(level.toFixed(2)),
+		y: truncateDecimal(level),
 	}));
 	return [
 		{

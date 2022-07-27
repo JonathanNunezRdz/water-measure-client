@@ -2,6 +2,7 @@ import { Box, SimpleGrid, Text } from '@chakra-ui/react';
 import type { FC } from 'react';
 
 import { useBoxBg } from 'lib/hooks';
+import { truncateDecimal } from 'lib/utils';
 
 interface CisternLevelsProps {
 	min: number;
@@ -20,12 +21,12 @@ const CisternLevels: FC<CisternLevelsProps> = ({
 }) => {
 	const bg = useBoxBg(1);
 	const waterLevel = () => {
-		if (typeof current === 'number') return `${current.toFixed(2)} m`;
+		if (typeof current === 'number') return `${truncateDecimal(current)} m`;
 		return current;
 	};
 	const waterCapacity = () => {
 		if (typeof current === 'number')
-			return `${(length * width * current * 1000).toFixed(2)} l`;
+			return `${truncateDecimal(length * width * current * 1000)} l`;
 		return 'n/a';
 	};
 	return (
@@ -37,13 +38,13 @@ const CisternLevels: FC<CisternLevelsProps> = ({
 				<Box width='100%'>
 					<SimpleGrid columns={2}>
 						<Text>Minimum water level:</Text>
-						<Text textAlign='center'>{min.toFixed(2)} m</Text>
+						<Text textAlign='center'>{truncateDecimal(min)} m</Text>
 					</SimpleGrid>
 				</Box>
 				<Box width='100%'>
 					<SimpleGrid columns={2}>
 						<Text>Maximum water level:</Text>
-						<Text textAlign='center'>{max.toFixed(2)} m</Text>
+						<Text textAlign='center'>{truncateDecimal(max)} m</Text>
 					</SimpleGrid>
 				</Box>
 				<Box width='100%'>

@@ -27,6 +27,15 @@ const Cistern: FC<CisternProps> = ({ cisternName }) => {
 		if (getCisternStatus === 'idle') dispatchGetCistern();
 	}, [getCisternStatus, dispatchGetCistern]);
 
+	useEffect(() => {
+		const intervalId = setInterval(() => {
+			if (getCisternStatus === 'succeeded') {
+				dispatchGetCistern();
+			}
+		}, 10.5 * 1000);
+		return () => clearInterval(intervalId);
+	}, [dispatchGetCistern, getCisternStatus]);
+
 	return (
 		<Box bg={bg} borderRadius='md'>
 			<CisternDetails
