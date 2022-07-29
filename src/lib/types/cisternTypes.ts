@@ -12,7 +12,6 @@ export const registerCisternSchema = z.object({
 	minWaterHeight: z.number().positive(),
 	waterLevelThreshold: z.number().positive(),
 	sensorHeight: z.number().positive(),
-	sensorOffset: z.number(),
 });
 
 export type RegisterCisternDto = z.infer<typeof registerCisternSchema>;
