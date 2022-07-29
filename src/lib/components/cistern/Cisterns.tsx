@@ -10,6 +10,7 @@ import {
 } from 'lib/redux/reducers/cisternSlice';
 
 import CisternLinks from './CisternLinks';
+import LoadingCisterns from './LoadingCisterns';
 import NoCisternsRegistered from './NoCisternsRegistered';
 import RegisterCisternLink from './RegisterCisternLink';
 
@@ -21,13 +22,17 @@ const Cisterns: FC = () => {
 	useEffect(() => {
 		if (getCisternsStatus === 'idle') dispatch(getAllCisterns());
 	}, [getCisternsStatus, dispatch]);
+
+	const content = () => {
+		if (getCisternsStatus === 'loading') return <LoadingCisterns />;
+		if (cisternNames.length > 0)
+			return <CisternLinks cisternNames={cisternNames} />;
+		return <NoCisternsRegistered />;
+	};
+
 	return (
 		<VStack px={1} alignItems='center'>
-			{cisternNames.length > 0 ? (
-				<CisternLinks cisternNames={cisternNames} />
-			) : (
-				<NoCisternsRegistered />
-			)}
+			{content()}
 			<RegisterCisternLink />
 		</VStack>
 	);
